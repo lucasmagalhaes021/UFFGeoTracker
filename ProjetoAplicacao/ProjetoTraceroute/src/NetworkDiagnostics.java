@@ -26,7 +26,8 @@ public class NetworkDiagnostics {
                     continue;
                 }
                 // Extract IP address using regular expression
-                String ipAddress = extractIpAddress(line);
+                //String ipAddress = extractIpAddress(line);
+                String ipAddress = line;
                 if (ipAddress != null) {
                     route.append(ipAddress).append("\n");
                 }
@@ -50,7 +51,7 @@ public class NetworkDiagnostics {
 
     public static void main(String[] args) {
         try {
-            InetAddress targetAddress = InetAddress.getByName("www.google.com");
+            InetAddress targetAddress = InetAddress.getByName("salateorica.com.br");
             NetworkDiagnostics networkDiagnostics = new NetworkDiagnostics();
             String traceResult = networkDiagnostics.traceRoute(targetAddress);
             System.out.println("Traceroute result (IP addresses only):\n" + traceResult);
