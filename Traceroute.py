@@ -32,7 +32,7 @@ def getIpDetails(ip):
         return None
 
 def main():
-    address = 'salateorica.com.br'
+    address = input("Digite a URL: ")
     tracerouteResult = []
     doneEvent = threading.Event()
     
@@ -47,11 +47,11 @@ def main():
     loadingThread.join()
     
     ipMapperList = []
-    headers = ["IP Address", "Latitude", "Longitude", "ISP", "City"]
+    headers = ["IP Address", "Latitude", "Longitude", "Provedor de Internet", "Cidade", "País"]
     for ip in tracerouteResult:
         info = getIpDetails(ip)
         if info and info['status'] == 'success':
-            ipData = [ip, info['lat'], info['lon'], info['isp'], info['city']]
+            ipData = [ip, info['lat'], info['lon'], info['isp'], info['city'], info['country']]
             ipMapperList.append(ipData)
     
     # Formata e exibe os resultados em uma tabela bonita
