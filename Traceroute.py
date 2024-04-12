@@ -3,9 +3,9 @@ import requests
 import re
 import threading
 import time
+from tabulate import tabulate  # Biblioteca para formatar a saída em tabela
 
 def traceroute(target, tracerouteResult):
-    # Executa o traceroute e armazena o resultado na variável tracerouteResult
     command = ['tracert', target]
     process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     CommandOutput, _ = process.communicate()
@@ -15,7 +15,6 @@ def traceroute(target, tracerouteResult):
     tracerouteResult.extend(formattedIpList)
 
 def SpinnerAnimation(event):
-    # Exibe uma animação de loading até que o evento de término seja setado
     spinner = "|/-\\"
     idx = 0
     while not event.is_set():
@@ -33,37 +32,30 @@ def getIpDetails(ip):
         return None
 
 def main():
-    address = 'salateorica.com.br'  # Exemplo de destino para o traceroute
+    address = 'salateorica.com.br'
     tracerouteResult = []
-
-    # Evento para sinalizar quando o traceroute está concluído
     doneEvent = threading.Event()
     
-    # Thread para o traceroute
     tracerouteThread = threading.Thread(target=traceroute, args=(address, tracerouteResult))
-    
-    # Thread para o loading
     loadingThread = threading.Thread(target=SpinnerAnimation, args=(doneEvent,))
     
-    # Inicia as threads
     tracerouteThread.start()
     loadingThread.start()
     
-    # Espera o traceroute terminar e sinaliza o término para a animação de loading
     tracerouteThread.join()
     doneEvent.set()
     loadingThread.join()
-
-    # Processa e imprime os resultados
+    
     ipMapperList = []
+    headers = ["IP Address", "Latitude", "Longitude", "ISP", "City"]
     for ip in tracerouteResult:
         info = getIpDetails(ip)
         if info and info['status'] == 'success':
-            line = f"IP: {ip} | Lat: {info['lat']}, Lon: {info['lon']}"
-            ipMapperList.append(line)
-
-    for ipLine in ipMapperList:
-        print(ipLine)
+            ipData = [ip, info['lat'], info['lon'], info['isp'], info['city']]
+            ipMapperList.append(ipData)
+    
+    # Formata e exibe os resultados em uma tabela bonita
+    print(tabulate(ipMapperList, headers=headers, tablefmt="grid"))
 
 if __name__ == "__main__":
     main()
