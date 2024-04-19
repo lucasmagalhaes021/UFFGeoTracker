@@ -23,7 +23,7 @@ def SpinnerAnimation(event):
         print(f"\rTraçando Rota {spinner[idx % len(spinner)]}", end="")
         idx += 1
         time.sleep(0.1)
-    print("\rRota Traçada!               ")
+    print("\rRota Traçada!")
 
 def getIpDetails(ip):
     url = f"http://ip-api.com/json/{ip}"
