@@ -24,10 +24,10 @@ Este projeto Python é uma ferramenta de visualização de traceroute que mostra
 
 ## Funcionalidades do Script
 
-1. **Traceroute**: Rastreia a rota que os pacotes seguem até o destino especificado e coleta os IPs dos hops intermediários.
-2. **Spinner Animation**: Exibe uma animação em terminal enquanto o traceroute está sendo processado.
-3. **Consulta IP**: Obtém informações geográficas e outras de cada IP na rota usando uma API externa.
-4. **Visualização em KML**: Gera um arquivo KML que pode ser aberto em aplicativos como Google Earth para visualizar a rota de traceroute.
+1. **traceroute**: Rastreia a rota que os pacotes seguem até o destino especificado e coleta os IPs dos hops intermediários.
+2. **spinnerAnimation**: Exibe uma animação em terminal enquanto o traceroute está sendo processado.
+3. **getIpDetails**: Obtém informações geográficas e outras de cada IP na rota usando uma API externa.
+4. **createKML**: Gera um arquivo KML que pode ser aberto em aplicativos como Google Earth para visualizar a rota de traceroute.
 
 ## Como Usar
 
