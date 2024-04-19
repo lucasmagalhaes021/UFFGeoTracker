@@ -3,7 +3,8 @@ import requests
 import re
 import threading
 import time
-from tabulate import tabulate  # Biblioteca para formatar a saída em tabela
+import simplekml
+from tabulate import tabulate
 
 def traceroute(target, tracerouteResult):
     command = ['tracert', target]
@@ -12,7 +13,7 @@ def traceroute(target, tracerouteResult):
     CommandOutput = CommandOutput.decode('utf-8', 'ignore')
     formattedIpList = re.findall(r'\d+\.\d+\.\d+\.\d+', CommandOutput)
     if formattedIpList:
-        formattedIpList.pop(0) #Remove o IP Destino do cabeçalho, para não duplicar na tabela
+        formattedIpList.pop(0)
     tracerouteResult.extend(formattedIpList)
 
 def SpinnerAnimation(event):
@@ -32,6 +33,37 @@ def getIpDetails(ip):
     else:
         return None
 
+def createKML(city, longitude, latitude, host):
+    kml = simplekml.Kml(name="TracerouteMap Map", open=1)
+    tour = kml.newgxtour(name="Packet Route")
+    playlist = tour.newgxplaylist()
+
+    for i in range(len(city)):
+        pnt = kml.newpoint(name=city[i])
+        pnt.coords = [(longitude[i], latitude[i])]
+        pnt.style.labelstyle.color = simplekml.Color.red
+        pnt.style.labelstyle.scale = 3
+        pnt.style.iconstyle.icon.href = 'https://cdn2.iconfinder.com/data/icons/social-media-8/512/pointer.png'
+        pnt.style.iconstyle.scale = 2
+        flyto = playlist.newgxflyto(gxduration=7)
+        flyto.camera.longitude = longitude[i]
+        flyto.camera.latitude = latitude[i]
+        playlist.newgxwait(gxduration=3)
+
+    filename = "Traceroute endereço " + host + ".kml"
+
+    for i in range(len(city) - 1):
+        name = city[i] + " to " + city[i+1]
+        lin = kml.newlinestring(name=name)
+        lin.coords = [(longitude[i], latitude[i]), (longitude[i+1], latitude[i+1])]
+        lin.style.linestyle.width = 8
+        lin.style.linestyle.color = simplekml.Color.cyan
+        lin.tessellate = 1
+        lin.altitudemode = simplekml.AltitudeMode.clamptoground
+
+    kml.save(filename)
+    return filename
+
 def main():
     while True:
         address = input("Digite a URL: ")
@@ -49,17 +81,25 @@ def main():
         loadingThread.join()
 
         ipMapperList = []
-        headers = ["IP Address", "Latitude", "Longitude", "Provedor de Internet", "Cidade", "País"]
+        headers = ["IP", "Latitude", "Longitude", "Provedor de Internet", "Estado", "Cidade", "País"]
+        city = []
+        longitude = []
+        latitude = []
+
         for ip in tracerouteResult:
             info = getIpDetails(ip)
             if info and info['status'] == 'success':
-                ipData = [ip, info['lat'], info['lon'], info['isp'], info['city'], info['country']]
+                ipData = [ip, info['lat'], info['lon'], info['isp'], info['region'], info['city'], info['country']]
                 ipMapperList.append(ipData)
+                city.append(info['city'])
+                longitude.append(info['lon'])
+                latitude.append(info['lat'])
 
-        # Formata e exibe os resultados em uma tabela bonita
         print(tabulate(ipMapperList, headers=headers, tablefmt="grid"))
 
-        # Pergunta ao usuário se ele deseja fazer uma nova busca ou sair
+        if len(city) > 0:
+            createKML(city, longitude, latitude, address)
+
         user_choice = input("Digite 1 para fazer uma nova busca, ou 2 para sair: ")
         if user_choice == "2":
             break
