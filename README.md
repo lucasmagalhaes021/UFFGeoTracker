@@ -36,5 +36,3 @@ Este projeto Python é uma ferramenta de visualização de traceroute que mostra
 3. O resultado será exibido no terminal e um arquivo KML será gerado se houver IPs válidos na rota.
 
 ---
-
-Este README oferece uma visão geral das bibliotecas usadas e suas funções dentro do script. Adapte conforme necessário para melhor atender às especificidades do seu projeto ou organização.
