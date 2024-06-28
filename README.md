@@ -36,6 +36,6 @@ Este projeto Python é uma ferramenta de visualização de traceroute que mostra
 
 1. Execute o script.
 2. Forneça uma URL ou um endereço IP para rastrear.
-3. O resultado será exibido no terminal e um arquivo KML será gerado se houver IPs válidos na rota.
+3. O resultado será salvo em arquivo KML e será gerado se houver IPs válidos na rota.
    
 ---
