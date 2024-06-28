@@ -4,7 +4,6 @@ import re
 import threading
 import time
 import simplekml
-from tabulate import tabulate
 
 def traceroute(target, tracerouteResult):
     command = ['tracert', target]
@@ -50,7 +49,7 @@ def createKML(city, longitude, latitude, host):
         flyto.camera.latitude = latitude[i]
         playlist.newgxwait(gxduration=3)
 
-    filename = "Traceroute endereço " + host + ".kml"
+    filename = "Traceroute_endereco_" + host + ".kml"
 
     for i in range(len(city) - 1):
         name = city[i] + " to " + city[i+1]
@@ -79,9 +78,7 @@ def main():
         tracerouteThread.join()
         doneEvent.set()
         loadingThread.join()
-
-        ipMapperList = []
-        headers = ["IP", "Latitude", "Longitude", "Provedor de Internet", "Estado", "Cidade", "País"]
+        
         city = []
         longitude = []
         latitude = []
@@ -89,16 +86,13 @@ def main():
         for ip in tracerouteResult:
             info = getIpDetails(ip)
             if info and info['status'] == 'success':
-                ipData = [ip, info['lat'], info['lon'], info['isp'], info['region'], info['city'], info['country']]
-                ipMapperList.append(ipData)
                 city.append(info['city'])
                 longitude.append(info['lon'])
                 latitude.append(info['lat'])
 
-        print(tabulate(ipMapperList, headers=headers, tablefmt="grid"))
-
         if len(city) > 0:
-            createKML(city, longitude, latitude, address)
+            filename = createKML(city, longitude, latitude, address)
+            print(f"Arquivo KML criado: {filename}")
 
         user_choice = input("Digite 1 para fazer uma nova busca, ou 2 para sair: ")
         if user_choice == "2":
