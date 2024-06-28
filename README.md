@@ -38,10 +38,88 @@ Este projeto Python é uma ferramenta de visualização de traceroute que mostra
 3. **getIpDetails**: Obtém informações geográficas e outras de cada IP na rota usando uma API externa.
 4. **createKML**: Gera um arquivo KML que pode ser aberto em aplicativos como Google Earth para visualizar a rota de traceroute.
 
-## Como Usar
 
-1. Execute o script.
-2. Forneça uma URL ou um endereço IP para rastrear.
-3. O resultado será salvo em arquivo KML e será gerado se houver IPs válidos na rota.
+## Comandos para Configuração do Script
+<details>
+  <summary>Processo de configuração (CMD Windows)</summary>
 
----
+  #### Verificar se o Python está instalado
+  ```bash
+  python --version
+  ```
+
+  #### Verificar se o pip está instalado
+  ```bash
+  pip --version
+  ```
+
+  #### Caso o pip não esteja instalado, siga estas etapas para instalá-lo:
+  1. Baixe o script get-pip.py usando curl:
+  ```bash
+  curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+  ```
+
+  2. Execute o script para instalar o pip:
+  ```bash
+  python get-pip.py
+  ```
+
+  #### Verificar novamente se o pip está instalado
+  ```bash
+  pip --version
+  ```
+
+  #### Instalar a biblioteca externa "simplekml"
+  ```bash
+  pip install simplekml
+  ```
+
+  #### Instalar a biblioteca "requests"
+  ```bash
+  pip install requests
+  ```
+
+</details>
+
+<details>
+  <summary>Processo de configuração (Terminal Linux)</summary>
+
+  #### Verificar se o Python está instalado
+  ```bash
+  python3 --version
+  ```
+
+  #### Verificar se o pip está instalado
+  ```bash
+  pip3 --version
+  ```
+
+  #### Caso o pip não esteja instalado, siga estas etapas para instalá-lo:
+  1. Baixe o script get-pip.py usando curl:
+  ```bash
+  curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+  ```
+
+  2. Execute o script para instalar o pip:
+  ```bash
+  python3 get-pip.py
+  ```
+
+  #### Verificar novamente se o pip está instalado
+  ```bash
+  pip3 --version
+  ```
+
+  #### Instalar a biblioteca externa "simplekml"
+  ```bash
+  pip3 install simplekml
+  ```
+
+  #### Instalar a biblioteca "requests"
+  ```bash
+  pip3 install requests
+  ```
+
+</details>
+
+
