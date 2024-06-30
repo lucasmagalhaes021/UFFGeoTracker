@@ -2,10 +2,10 @@
 
 Este projeto Python é uma ferramenta de visualização de **Traceroute** que mostra a rota dos pacotes até um destino especificado em um arquivo KML. Abaixo estão as bibliotecas utilizadas e suas funcionalidades específicas no contexto do projeto.
 
-## Traceroute:
-![Traceroute_Cartaz (1)](https://github.com/lucasmagalhaes021/redes_2024_1/assets/148398476/a1d4c0f0-c8ce-49cb-92da-39da0415acb9)
+## Traceroute
+![Traceroute_Cartaz](https://github.com/lucasmagalhaes021/redes_2024_1/assets/148398476/69b77cf6-2917-4250-90c7-1d917ee286f4)
 
-## Diagrama do Processo:
+## Diagrama do Processo
 ![UffGeoTracker_2](https://github.com/lucasmagalhaes021/redes_2024_1/assets/148398476/c05d2629-6e02-471d-b059-6a04ad455b7f)
 
 ## Bibliotecas Utilizadas
