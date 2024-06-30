@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2">
+    <Document id="1">
+        <Style id="6">
+            <IconStyle id="8">
+                <colorMode>normal</colorMode>
+                <scale>2</scale>
+                <heading>0</heading>
+                <Icon id="9">
+                    <href>https://cdn2.iconfinder.com/data/icons/social-media-8/512/pointer.png</href>
+                </Icon>
+            </IconStyle>
+            <LabelStyle id="7">
+                <color>ff0000ff</color>
+                <colorMode>normal</colorMode>
+                <scale>3</scale>
+            </LabelStyle>
+        </Style>
+        <Style id="15">
+            <IconStyle id="17">
+                <colorMode>normal</colorMode>
+                <scale>2</scale>
+                <heading>0</heading>
+                <Icon id="18">
+                    <href>https://cdn2.iconfinder.com/data/icons/social-media-8/512/pointer.png</href>
+                </Icon>
+            </IconStyle>
+            <LabelStyle id="16">
+                <color>ff0000ff</color>
+                <colorMode>normal</colorMode>
+                <scale>3</scale>
+            </LabelStyle>
+        </Style>
+        <Style id="24">
+            <IconStyle id="26">
+                <colorMode>normal</colorMode>
+                <scale>2</scale>
+                <heading>0</heading>
+                <Icon id="27">
+                    <href>https://cdn2.iconfinder.com/data/icons/social-media-8/512/pointer.png</href>
+                </Icon>
+            </IconStyle>
+            <LabelStyle id="25">
+                <color>ff0000ff</color>
+                <colorMode>normal</colorMode>
+                <scale>3</scale>
+            </LabelStyle>
+        </Style>
+        <Style id="33">
+            <IconStyle id="35">
+                <colorMode>normal</colorMode>
+                <scale>2</scale>
+                <heading>0</heading>
+                <Icon id="36">
+                    <href>https://cdn2.iconfinder.com/data/icons/social-media-8/512/pointer.png</href>
+                </Icon>
+            </IconStyle>
+            <LabelStyle id="34">
+                <color>ff0000ff</color>
+                <colorMode>normal</colorMode>
+                <scale>3</scale>
+            </LabelStyle>
+        </Style>
+        <Style id="42">
+            <LineStyle id="43">
+                <color>ffffff00</color>
+                <colorMode>normal</colorMode>
+                <width>8</width>
+            </LineStyle>
+        </Style>
+        <Style id="46">
+            <LineStyle id="47">
+                <color>ffffff00</color>
+                <colorMode>normal</colorMode>
+                <width>8</width>
+            </LineStyle>
+        </Style>
+        <Style id="50">
+            <LineStyle id="51">
+                <color>ffffff00</color>
+                <colorMode>normal</colorMode>
+                <width>8</width>
+            </LineStyle>
+        </Style>
+        <name>TracerouteMap Map</name>
+        <open>1</open>
+        <gx:Tour>
+            <name>Packet Route</name>
+            <gx:Playlist>
+                <gx:FlyTo id="10">
+                    <gx:duration>7</gx:duration>
+                    <Camera>
+                        <longitude>-122.084</longitude>
+                        <latitude>37.422</latitude>
+                    </Camera>
+                </gx:FlyTo>
+                <gx:Wait id="12">
+                    <gx:duration>3</gx:duration>
+                </gx:Wait>
+                <gx:FlyTo id="19">
+                    <gx:duration>7</gx:duration>
+                    <Camera>
+                        <longitude>-122.084</longitude>
+                        <latitude>37.422</latitude>
+                    </Camera>
+                </gx:FlyTo>
+                <gx:Wait id="21">
+                    <gx:duration>3</gx:duration>
+                </gx:Wait>
+                <gx:FlyTo id="28">
+                    <gx:duration>7</gx:duration>
+                    <Camera>
+                        <longitude>-73.9953</longitude>
+                        <latitude>40.782</latitude>
+                    </Camera>
+                </gx:FlyTo>
+                <gx:Wait id="30">
+                    <gx:duration>3</gx:duration>
+                </gx:Wait>
+                <gx:FlyTo id="37">
+                    <gx:duration>7</gx:duration>
+                    <Camera>
+                        <longitude>-77.183</longitude>
+                        <latitude>39.1723</latitude>
+                    </Camera>
+                </gx:FlyTo>
+                <gx:Wait id="39">
+                    <gx:duration>3</gx:duration>
+                </gx:Wait>
+            </gx:Playlist>
+        </gx:Tour>
+        <Placemark id="5">
+            <name>Mountain View</name>
+            <styleUrl>#6</styleUrl>
+            <Point id="4">
+                <coordinates>-122.084,37.422,0.0</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark id="14">
+            <name>Mountain View</name>
+            <styleUrl>#15</styleUrl>
+            <Point id="13">
+                <coordinates>-122.084,37.422,0.0</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark id="23">
+            <name>New York</name>
+            <styleUrl>#24</styleUrl>
+            <Point id="22">
+                <coordinates>-73.9953,40.782,0.0</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark id="32">
+            <name>Gaithersburg</name>
+            <styleUrl>#33</styleUrl>
+            <Point id="31">
+                <coordinates>-77.183,39.1723,0.0</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark id="41">
+            <name>Mountain View to Mountain View</name>
+            <styleUrl>#42</styleUrl>
+            <LineString id="40">
+                <tessellate>1</tessellate>
+                <altitudeMode>clampToGround</altitudeMode>
+                <coordinates>-122.084,37.422,0.0 -122.084,37.422,0.0</coordinates>
+            </LineString>
+        </Placemark>
+        <Placemark id="45">
+            <name>Mountain View to New York</name>
+            <styleUrl>#46</styleUrl>
+            <LineString id="44">
+                <tessellate>1</tessellate>
+                <altitudeMode>clampToGround</altitudeMode>
+                <coordinates>-122.084,37.422,0.0 -73.9953,40.782,0.0</coordinates>
+            </LineString>
+        </Placemark>
+        <Placemark id="49">
+            <name>New York to Gaithersburg</name>
+            <styleUrl>#50</styleUrl>
+            <LineString id="48">
+                <tessellate>1</tessellate>
+                <altitudeMode>clampToGround</altitudeMode>
+                <coordinates>-73.9953,40.782,0.0 -77.183,39.1723,0.0</coordinates>
+            </LineString>
+        </Placemark>
+    </Document>
+</kml>
