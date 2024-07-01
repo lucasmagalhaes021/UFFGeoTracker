@@ -8,6 +8,13 @@ Este projeto Python é uma ferramenta de visualização de **Traceroute** que mo
 ## Diagrama do Processo
 ![UffGeoTracker_2](https://github.com/lucasmagalhaes021/redes_2024_1/assets/148398476/c05d2629-6e02-471d-b059-6a04ad455b7f)
 
+## Funcionalidades do Script
+
+1. **Traceroute**: Rastreia a rota que os pacotes seguem até o destino especificado e coleta os IPs dos hops intermediários.
+2. **SpinnerAnimation**: Exibe uma animação em terminal enquanto o traceroute está sendo processado.
+3. **GetIpDetails**: Obtém informações geográficas e outras de cada IP na rota usando uma API externa.
+4. **CreateKML**: Gera um arquivo KML que pode ser aberto em aplicativos como Google Earth para visualizar a rota de traceroute.
+
 ## Bibliotecas Utilizadas
 
 ### `subprocess`
@@ -33,14 +40,6 @@ Este projeto Python é uma ferramenta de visualização de **Traceroute** que mo
 ### `simplekml`
 - **Utilidade**: Permite a criação de arquivos KML com uma interface simples. É usada para criar um arquivo KML que mapeia a rota de traceroute com detalhes geográficos, incluindo pontos e linhas entre as localizações dos IPs.
 - **Documentação**: [simplekml](https://simplekml.readthedocs.io/en/latest/)
-
-## Funcionalidades do Script
-
-1. **traceroute**: Rastreia a rota que os pacotes seguem até o destino especificado e coleta os IPs dos hops intermediários.
-2. **spinnerAnimation**: Exibe uma animação em terminal enquanto o traceroute está sendo processado.
-3. **getIpDetails**: Obtém informações geográficas e outras de cada IP na rota usando uma API externa.
-4. **createKML**: Gera um arquivo KML que pode ser aberto em aplicativos como Google Earth para visualizar a rota de traceroute.
-
 
 ## Comandos para Configuração do Script
 <details>
